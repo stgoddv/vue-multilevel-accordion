@@ -19,7 +19,7 @@
         :ref="`panel-${reference}`"
         :style="panelStyle"
       >
-        <ul style="margin-left: 1rem;">
+        <ul style="margin-left: 2rem;">
           <deep-accordion-children
             v-for="(child, index) in data.children"
             :key="index"

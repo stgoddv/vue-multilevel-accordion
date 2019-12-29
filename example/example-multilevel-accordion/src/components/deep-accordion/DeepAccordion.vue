@@ -6,11 +6,14 @@
         :key="index"
         :data="child"
         :position="index"
-        :interleaveOffset="0"
+        :interleaveOffset="1"
         :reference="`${index}`"
       >
         <template slot-scope="_">
-          <slot :data="_.data" :interleaved="_.interleaved"></slot>
+          <slot
+            :data="_.data"
+            :interleaved="_.interleaved"
+          ></slot>
         </template>
       </deep-accordion-children>
     </ul>
