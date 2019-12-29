@@ -1,6 +1,8 @@
 <template>
   <div class="home container mx-auto">
+
     <p class="my-8 text-xl">Ejemplo de Componente</p>
+
     <deep-accordion
       :data="tree"
       class="max-w-md mx-auto"
@@ -9,14 +11,16 @@
         <div
           class="mb-3 p-3 border rounded-lg shadow cursor-pointer hover:shadow-md hover:bg-green-300"
           style="transition: box-shadow, background-color 0.2s ease-out;"
-          :class="{ 'bg-green-100':interleaved, 'bg-green-200':!interleaved }"
+          :class="{ 'bg-green-100':interleaved, 
+          'bg-green-200':!interleaved, 
+          'hover:text-blue-600':data.leaf }"
         >
-          <div class="">
-            <p class="">{{ data.text }}</p>
-          </div>
+          <p>{{ data.text }}</p>
         </div>
       </template>
     </deep-accordion>
+
+    <div class="py-8"></div>
 
   </div>
 </template>
