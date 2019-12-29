@@ -14,7 +14,7 @@
       <template slot-scope="{ tree, interleaved, expanded }">
         <div
           class="mb-3 p-3 border rounded-lg shadow cursor-pointer hover:shadow-md hover:bg-green-300"
-          style="transition: box-shadow, background-color, transform 0.2s ease-out;"
+          style="transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out, transform 0.2s ease-out;"
           :class="{ 'bg-green-100':interleaved, 
           'bg-green-200':!interleaved, 
           'hover:text-blue-600 move-right':tree.leaf }"
@@ -29,19 +29,25 @@
 
     <deep-accordion
       :tree="tree"
-      class="max-w-md mx-auto select-none"
+      class="max-w-xs mx-auto select-none"
     >
-      <template slot-scope="{ tree, interleaved, expanded, level }">
+      <template slot-scope="{ tree, level, expanded }">
         <div
-          class="mb-3 p-3 border rounded-lg shadow cursor-pointer hover:shadow-md hover:bg-green-300"
-          style="transition: box-shadow, background-color, transform 0.2s ease-out;"
-          :style="`margin-left: ${2*level}rem;`"
-          :class="{ 'bg-green-100':interleaved, 
-          'bg-green-200':!interleaved, 
-          'hover:text-blue-600 move-right':tree.leaf }"
+          :class="`relative mb-3 p-1 border rounded-full shadow cursor-pointer hover:shadow-lg bg-pink-${(2 - level)*2 + 1}00`"
+          style="transition: box-shadow 0.2s;"
           @click="select(tree.text, tree.leaf)"
         >
-          <p><span v-if="!tree.leaf">{{ expanded ? '&#8681;' : '&#8680;' }} | </span> {{ tree.text }}</p>
+          <p
+            class="text-center"
+            :class="{'text-gray-800':level > 0, 'text-white': level == 0}"
+          >{{ tree.text }}</p>
+          <p
+            v-if="!tree.leaf"
+            class="absolute font-bold text-xl"
+            :class="{'text-gray-800':level > 0, 'text-white': level == 0}"
+            style="top: 0.05rem; left: 1rem;"
+          >{{ expanded ? '&#8722;' : '&#43;' }}</p>
+
         </div>
       </template>
     </deep-accordion>
