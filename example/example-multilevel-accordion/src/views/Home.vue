@@ -29,7 +29,7 @@
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
-        <deep-accordion
+        <multilevel-accordion
           :tree="tree"
           :marginLeft="2"
           class="max-w-md mx-auto pt-8 px-5 select-none"
@@ -54,7 +54,7 @@
               </p>
             </div>
           </template>
-        </deep-accordion>
+        </multilevel-accordion>
       </div>
     </div>
 
@@ -90,7 +90,7 @@
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
-        <deep-accordion
+        <multilevel-accordion
           :tree="tree"
           class="max-w-xs mx-auto pt-8 px-5 select-none"
         >
@@ -116,7 +116,7 @@
               </p>
             </div>
           </template>
-        </deep-accordion>
+        </multilevel-accordion>
       </div>
     </div>
 
@@ -142,7 +142,7 @@
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
-        <deep-accordion
+        <multilevel-accordion
           :tree="tree"
           :marginLeft="2"
           class="pt-5 pl-8 px-5 select-none"
@@ -156,7 +156,7 @@
               <p><span v-if="!tree.leaf">&#8280;</span> {{ tree.text }}</p>
             </div>
           </template>
-        </deep-accordion>
+        </multilevel-accordion>
       </div>
     </div>
 
@@ -165,14 +165,14 @@
 </template>
 
 <script>
-import DeepAccordion from "@/components/deep-accordion/DeepAccordion";
+import MultilevelAccordion from "@/components/multilevel-accordion/MultilevelAccordion";
 
 import { tree } from "./dummydata";
 
 export default {
   name: "home",
   components: {
-    DeepAccordion
+    MultilevelAccordion
   },
   data() {
     return {

@@ -19,7 +19,7 @@
         :style="panelStyle"
       >
         <ul :style="`margin-left: ${marginLeft}rem;`">
-          <deep-accordion-children
+          <multilevel-accordion-children
             v-for="(child, index) in tree.children"
             :key="index"
             :tree="child"
@@ -39,7 +39,7 @@
                 :level="_.level"
               ></slot>
             </template>
-          </deep-accordion-children>
+          </multilevel-accordion-children>
         </ul>
       </div>
     </li>
@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import DeepAccordionChildren from "./DeepAccordionChildren";
+import MultilevelAccordionChildren from "./MultilevelAccordionChildren";
 
 export default {
-  name: "deep-accordion-children",
+  name: "multilevel-accordion-children",
   props: {
     tree: {
       type: Object
@@ -77,7 +77,7 @@ export default {
     }
   },
   components: {
-    DeepAccordionChildren
+    MultilevelAccordionChildren
   },
   data() {
     return {

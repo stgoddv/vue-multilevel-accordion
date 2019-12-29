@@ -1,7 +1,7 @@
 <template>
   <div class="accordion-root">
     <ul class="list-root">
-      <deep-accordion-children
+      <multilevel-accordion-children
         v-for="(child, index) in tree.children"
         :key="index"
         :tree="child"
@@ -19,13 +19,13 @@
             :level="_.level"
           ></slot>
         </template>
-      </deep-accordion-children>
+      </multilevel-accordion-children>
     </ul>
   </div>
 </template>
 
 <script>
-import DeepAccordionChildren from "./DeepAccordionChildren";
+import MultilevelAccordionChildren from "./MultilevelAccordionChildren";
 
 export default {
   props: {
@@ -38,7 +38,7 @@ export default {
     }
   },
   components: {
-    DeepAccordionChildren
+    MultilevelAccordionChildren
   }
 };
 </script>
