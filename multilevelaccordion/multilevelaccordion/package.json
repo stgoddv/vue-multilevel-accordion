@@ -1,0 +1,51 @@
+{
+  "name": "multilevelaccordion",
+  "version": "0.1.0",
+  "main": "dist/multilevelaccordion.umd.js",
+  "module": "dist/multilevelaccordion.esm.js",
+  "unpkg": "dist/multilevelaccordion.min.js",
+  "browser": {
+    "./sfc": "src/multilevelaccordion.vue"
+  },
+  "private": true,
+  "scripts": {
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/multilevelaccordion.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/multilevelaccordion.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/multilevelaccordion.min.js"
+  },
+  "dependencies": {
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "rollup": "^0.57.1",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-vue": "^3.0.0",
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
