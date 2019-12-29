@@ -17,7 +17,11 @@ const tree = {
             },
             {
               text: "Unidad 3",
-              leaf: true
+              leaf: false,
+              children: [{
+                text: "Apartado 1",
+                leaf: true
+              }]
             }
           ]
         },
@@ -52,7 +56,7 @@ const tree = {
           },
           {
             text: "Unidad 3",
-            leaf: true
+            leaf: true,
           }
         ]
       }]

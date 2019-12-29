@@ -1,19 +1,23 @@
 <template>
   <div class="home container mx-auto">
 
-    <p class="my-8 text-xl">Ejemplo de Componente</p>
+    <div class="my-8">
+      <p class="text-xl">Multi Level Accordion</p>
+      <p class="mt-3 text-sm">Selected Item: {{ selectedItem || 'ninguno' }}</p>
+    </div>
 
     <deep-accordion
       :data="tree"
-      class="max-w-md mx-auto"
+      class="max-w-md mx-auto select-none"
     >
       <template slot-scope="{ data, interleaved }">
         <div
           class="mb-3 p-3 border rounded-lg shadow cursor-pointer hover:shadow-md hover:bg-green-300"
-          style="transition: box-shadow, background-color 0.2s ease-out;"
+          style="transition: box-shadow, background-color, transform 0.2s ease-out;"
           :class="{ 'bg-green-100':interleaved, 
           'bg-green-200':!interleaved, 
-          'hover:text-blue-600':data.leaf }"
+          'hover:text-blue-600 move-right':data.leaf }"
+          @click="select(data.text, data.leaf)"
         >
           <p>{{ data.text }}</p>
         </div>
@@ -37,8 +41,20 @@ export default {
   },
   data() {
     return {
+      selectedItem: null,
       tree
     };
+  },
+  methods: {
+    select(text, leaf) {
+      if (leaf) this.selectedItem = text;
+    }
   }
 };
 </script>
+
+<style scoped>
+.move-right:hover {
+  transform: translateX(10px);
+}
+</style>
