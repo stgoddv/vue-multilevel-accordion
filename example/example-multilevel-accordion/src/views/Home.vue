@@ -25,14 +25,14 @@
           </code>
         </pre>
       </div>
-      <div class="w-full md:w-5/12">
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
         <deep-accordion
           :tree="tree"
           :marginLeft="2"
-          class="max-w-md mx-auto pt-8 select-none"
+          class="max-w-md mx-auto pt-8 px-5 select-none"
         >
           <template slot-scope="{ tree, interleaved, expanded }">
             <div
@@ -86,11 +86,14 @@
           </code>
         </pre>
       </div>
-      <div class="w-full md:w-5/12">
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
-        <deep-accordion :tree="tree" class="max-w-xs mx-auto pt-8 select-none">
+        <deep-accordion
+          :tree="tree"
+          class="max-w-xs mx-auto pt-8 px-5 select-none"
+        >
           <template slot-scope="{ tree, level, expanded }">
             <div
               :class="
@@ -135,14 +138,14 @@
           </code>
         </pre>
       </div>
-      <div class="w-full md:w-5/12">
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
         <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
         <deep-accordion
           :tree="tree"
           :marginLeft="2"
-          class="pt-5 pl-8 select-none"
+          class="pt-5 pl-8 px-5 select-none"
         >
           <template slot-scope="{ tree }">
             <div
