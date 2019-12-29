@@ -1,11 +1,10 @@
 <template>
   <div class="accordion-children">
-    <li v-show="show">
-
+    <li>
       <!-- Upper Tab -->
       <div
         class="accordion"
-        @click="reckonExpand()"
+        @click="togglePanel()"
       >
         <slot
           :data="data"
@@ -15,8 +14,7 @@
 
       <!-- Expandible Elements -->
       <div
-        class="panel expandible"
-        :class="{ 'panel-transition' : !searching}"
+        class="panel expandible panel-transition"
         :ref="`panel-${reference}`"
         v-if="!data.leaf"
         :style="panelStyle"
@@ -31,7 +29,6 @@
             :position="index"
             :interleaveOffset="interleaveOffset + position + 1"
             @updateHeight="updateHeight"
-            :searching="searching"
           >
             <template slot-scope="_">
               <slot
@@ -42,18 +39,16 @@
           </deep-accordion-children>
         </ul>
       </div>
-
     </li>
   </div>
 </template>
 
 <script>
 import DeepAccordionChildren from "./DeepAccordionChildren";
-import { EventBus } from "./event-bus";
 
 export default {
   name: "deep-accordion-children",
-  props: ["data", "reference", "interleaveOffset", "position", "searching"],
+  props: ["data", "reference", "interleaveOffset", "position"],
   components: {
     DeepAccordionChildren
   },
@@ -61,52 +56,12 @@ export default {
     return {
       panelStyle: "",
       interleaved: ((this.interleaveOffset % 2) + this.position) % 2 == 0,
-      show: true
+      expanded: false
     };
   },
   methods: {
-    searchSignal(matchTerm) {
-      // Initially hide and shrink all
-      this.shrink();
-      this.show = false;
-      // Iterate through childrens
-      if (this.$refs[`childs-${this.reference}`]) {
-        this.$refs[`childs-${this.reference}`].forEach(element => {
-          element.searchSignal(matchTerm);
-        });
-      }
-      // Check for match and signal up and downstream
-      if (this.textMatch(matchTerm)) {
-        this.showUpstream(matchTerm);
-        this.showDownstream();
-      }
-    },
-    textMatch(value) {
-      let normalized = this.data.text.toString().toLowerCase();
-      return normalized.indexOf(value.toLowerCase()) != -1;
-    },
-    showUpstream(matchTerm) {
-      // show = true means node already taken into account so stop bubbling
-      if (!this.show) {
-        this.show = true;
-        // Send node to stack in root component
-        if (matchTerm !== "" && this.$parent.expand) {
-          EventBus.$emit("add-stack", this.$parent.expand);
-        }
-        // Bubble the signal upstream
-        if (this.$parent.showUpstream) this.$parent.showUpstream(matchTerm);
-      }
-    },
-    showDownstream() {
-      this.show = true;
-      if (this.$refs[`childs-${this.reference}`]) {
-        this.$refs[`childs-${this.reference}`].forEach(element => {
-          element.showDownstream();
-        });
-      }
-    },
-    reckonExpand() {
-      if (!this.data.expanded) {
+    togglePanel() {
+      if (!this.expanded) {
         this.expand();
       } else {
         this.shrink();
@@ -114,10 +69,10 @@ export default {
     },
     expand() {
       if (this.data.leaf) return null;
-      if (!this.data.expanded) {
+      if (!this.expanded) {
         let el = this.$refs[`panel-${this.reference}`];
         this.panelStyle = `max-height: ${el.scrollHeight}px;`;
-        this.data.expanded = true;
+        this.expanded = true;
         // Inform to the parent the new height so it can re calculate its scroll height
         this.$emit("updateHeight", el.scrollHeight);
       }
@@ -125,11 +80,11 @@ export default {
     shrink() {
       if (this.data.leaf) return null;
       this.panelStyle = "max-height: 0px;";
-      this.data.expanded = false;
+      this.expanded = false;
     },
     updateHeight(childrenHeight) {
       // Recalculate scroll height based on childrens height modification
-      if (this.data.expanded) {
+      if (this.expanded) {
         let el = this.$refs[`panel-${this.reference}`];
         this.panelStyle = `max-height: ${el.scrollHeight + childrenHeight}px;`;
         this.$emit("updateHeight", el.scrollHeight + childrenHeight);

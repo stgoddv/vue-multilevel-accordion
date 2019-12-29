@@ -11,13 +11,11 @@
               <div>
                 <p>{{ data.text }}</p>
               </div>
-
             </div>
           </template>
         </deep-accordion>
       </div>
     </div>
-
   </div>
 </template>
 
