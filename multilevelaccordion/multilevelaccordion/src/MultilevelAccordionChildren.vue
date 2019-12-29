@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import MultilevelAccordionChildren from "src/MultilevelAccordionChildren";
+import MultilevelAccordionChildren from "./MultilevelAccordionChildren.vue";
 
 export default {
   name: "multilevel-accordion-children",

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import MultilevelAccordionChildren from "src/MultilevelAccordionChildren";
+import MultilevelAccordionChildren from "./MultilevelAccordionChildren.vue";
 
 export default {
   props: {
