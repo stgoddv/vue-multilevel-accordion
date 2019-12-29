@@ -10,7 +10,7 @@
       :data="tree"
       class="max-w-md mx-auto select-none"
     >
-      <template slot-scope="{ data, interleaved }">
+      <template slot-scope="{ data, interleaved, expanded }">
         <div
           class="mb-3 p-3 border rounded-lg shadow cursor-pointer hover:shadow-md hover:bg-green-300"
           style="transition: box-shadow, background-color, transform 0.2s ease-out;"
@@ -19,7 +19,7 @@
           'hover:text-blue-600 move-right':data.leaf }"
           @click="select(data.text, data.leaf)"
         >
-          <p>{{ data.text }}</p>
+          <p><span v-if="!data.leaf">{{ expanded ? '&#8681;' : '&#8680;' }} | </span> {{ data.text }}</p>
         </div>
       </template>
     </deep-accordion>

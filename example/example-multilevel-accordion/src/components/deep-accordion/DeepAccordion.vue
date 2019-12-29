@@ -13,6 +13,7 @@
           <slot
             :data="_.data"
             :interleaved="_.interleaved"
+            :expanded="_.expanded"
           ></slot>
         </template>
       </deep-accordion-children>
