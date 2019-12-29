@@ -14,12 +14,12 @@
 
       <!-- Expandible Elements -->
       <div
+        v-if="!data.leaf"
         class="panel expandible panel-transition"
         :ref="`panel-${reference}`"
-        v-if="!data.leaf"
         :style="panelStyle"
       >
-        <ul style="margin-left: 2rem;">
+        <ul style="margin-left: 1rem;">
           <deep-accordion-children
             v-for="(child, index) in data.children"
             :key="index"
