@@ -1,6 +1,6 @@
 {
   "name": "vue-multilevel-accordion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/multilevelaccordion.umd.js",
   "module": "dist/multilevelaccordion.esm.js",
   "unpkg": "dist/multilevelaccordion.min.js",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "rollup": "^0.57.1",
     "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-vue": "^5.0.0",
+    "rollup-plugin-vue": "5.1.1",
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
