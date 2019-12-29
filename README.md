@@ -20,7 +20,7 @@ The above reasons led me to build an extremely customizable recursive accordion.
 
 ### Installation
 
-First install package by npm
+1. First install package by npm
 
 > npm i vue-multilevel-accordion
 
@@ -29,14 +29,22 @@ Then import the component and register it where you want to use it.
 ```html
 <script>
   import MultilevelAccordion from "vue-multilevel-accordion";
+  import tree from "./tree.js";
 
   export default {
     components: {
       MultilevelAccordion
+    },
+    data() {
+      return {
+        tree
+      };
     }
   };
 </script>
 ```
+
+Finall
 
 ### Use
 
