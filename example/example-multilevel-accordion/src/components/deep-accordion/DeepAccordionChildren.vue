@@ -2,10 +2,7 @@
   <div class="accordion-children">
     <li>
       <!-- Upper Tab -->
-      <div
-        class="accordion"
-        @click="togglePanel()"
-      >
+      <div class="accordion" @click="togglePanel()">
         <slot
           :tree="tree"
           :interleaved="interleaved"

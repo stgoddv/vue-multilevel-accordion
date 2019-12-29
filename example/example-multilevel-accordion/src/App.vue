@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <div
-      id="nav"
-      v-show="false"
-    >
+    <div id="nav" v-show="false">
       <router-link to="/">Home</router-link>
     </div>
     <router-view />
