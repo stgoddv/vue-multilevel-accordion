@@ -26,15 +26,15 @@ First install package by npm
 
 Then import the component and register it where you want to use it.
 
-```
+```html
 <script>
-import MultilevelAccordion from "vue-multilevel-accordion";
+  import MultilevelAccordion from "vue-multilevel-accordion";
 
-export default {
-  components: {
-    MultilevelAccordion
-  }
-};
+  export default {
+    components: {
+      MultilevelAccordion
+    }
+  };
 </script>
 ```
 
