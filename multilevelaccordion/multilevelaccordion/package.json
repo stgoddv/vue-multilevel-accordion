@@ -1,5 +1,5 @@
 {
-  "name": "multilevelaccordion",
+  "name": "vue-multilevelaccordion",
   "version": "0.1.0",
   "main": "dist/multilevelaccordion.umd.js",
   "module": "dist/multilevelaccordion.esm.js",
