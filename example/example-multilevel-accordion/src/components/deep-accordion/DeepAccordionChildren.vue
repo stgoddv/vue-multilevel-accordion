@@ -7,35 +7,39 @@
         @click="togglePanel()"
       >
         <slot
-          :data="data"
+          :tree="tree"
           :interleaved="interleaved"
           :expanded="expanded"
+          :level="level"
         ></slot>
       </div>
 
       <!-- Expandible Elements -->
       <div
-        v-if="!data.leaf"
+        v-if="!tree.leaf"
         class="panel expandible panel-transition"
         :ref="`panel-${reference}`"
         :style="panelStyle"
       >
-        <ul style="margin-left: 2rem;">
+        <ul :style="`margin-left: ${marginLeft}rem;`">
           <deep-accordion-children
-            v-for="(child, index) in data.children"
+            v-for="(child, index) in tree.children"
             :key="index"
-            :data="child"
+            :tree="child"
             :reference="`${reference}-${index}`"
             :ref="`childs-${reference}`"
             :position="index"
             :interleaveOffset="interleaveOffset + position + 1"
+            :level="level + 1"
+            :marginLeft="marginLeft"
             @updateHeight="updateHeight"
           >
             <template slot-scope="_">
               <slot
-                :data="_.data"
+                :tree="_.tree"
                 :interleaved="_.interleaved"
                 :expanded="_.expanded"
+                :level="_.level"
               ></slot>
             </template>
           </deep-accordion-children>
@@ -50,7 +54,31 @@ import DeepAccordionChildren from "./DeepAccordionChildren";
 
 export default {
   name: "deep-accordion-children",
-  props: ["data", "reference", "interleaveOffset", "position"],
+  props: {
+    tree: {
+      type: Object
+    },
+    reference: {
+      type: String,
+      required: true
+    },
+    interleaveOffset: {
+      type: Number,
+      required: true
+    },
+    position: {
+      type: Number,
+      required: true
+    },
+    level: {
+      type: Number,
+      required: true
+    },
+    marginLeft: {
+      type: Number,
+      default: 0
+    }
+  },
   components: {
     DeepAccordionChildren
   },
@@ -70,7 +98,7 @@ export default {
       }
     },
     expand() {
-      if (this.data.leaf) return null;
+      if (this.tree.leaf) return null;
       if (!this.expanded) {
         let el = this.$refs[`panel-${this.reference}`];
         this.panelStyle = `max-height: ${el.scrollHeight}px;`;
@@ -80,7 +108,7 @@ export default {
       }
     },
     shrink() {
-      if (this.data.leaf) return null;
+      if (this.tree.leaf) return null;
       this.panelStyle = "max-height: 0px;";
       this.expanded = false;
     },

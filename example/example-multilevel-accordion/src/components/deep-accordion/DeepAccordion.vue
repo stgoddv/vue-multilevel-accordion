@@ -2,18 +2,21 @@
   <div class="accordion-root">
     <ul class="list-root">
       <deep-accordion-children
-        v-for="(child, index) in data.children"
+        v-for="(child, index) in tree.children"
         :key="index"
-        :data="child"
+        :tree="child"
         :position="index"
         :interleaveOffset="1"
         :reference="`${index}`"
+        :level="0"
+        :marginLeft="marginLeft"
       >
         <template slot-scope="_">
           <slot
-            :data="_.data"
+            :tree="_.tree"
             :interleaved="_.interleaved"
             :expanded="_.expanded"
+            :level="_.level"
           ></slot>
         </template>
       </deep-accordion-children>
@@ -25,7 +28,15 @@
 import DeepAccordionChildren from "./DeepAccordionChildren";
 
 export default {
-  props: ["data"],
+  props: {
+    tree: {
+      type: Object
+    },
+    marginLeft: {
+      type: Number,
+      default: 0
+    }
+  },
   components: {
     DeepAccordionChildren
   }
