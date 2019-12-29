@@ -25,7 +25,7 @@
       </template>
     </deep-accordion>
 
-    <div class="py-5"></div>
+    <div class="py-3"></div>
 
     <deep-accordion
       :tree="tree"
@@ -33,18 +33,18 @@
     >
       <template slot-scope="{ tree, level, expanded }">
         <div
-          :class="`relative mb-3 p-1 border rounded-full shadow cursor-pointer hover:shadow-lg bg-pink-${(2 - level)*2 + 1}00`"
-          style="transition: box-shadow 0.2s;"
+          :class="`relative mb-3 p-1 border 
+            rounded-full shadow cursor-pointer 
+            hover:shadow-lg bg-pink-${(2 - level)*2 + 1}00
+            ${ level === 0 ? 'text-white' : '' }
+            ${ tree.leaf ? 'hover:bg-indigo-800 hover:text-white' : '' }`"
+          style="transition: box-shadow 0.5s, background-color 0.5s, color 0.5s;"
           @click="select(tree.text, tree.leaf)"
         >
-          <p
-            class="text-center"
-            :class="{'text-gray-800':level > 0, 'text-white': level == 0}"
-          >{{ tree.text }}</p>
+          <p class="text-center">{{ tree.text }}</p>
           <p
             v-if="!tree.leaf"
             class="absolute font-bold text-xl"
-            :class="{'text-gray-800':level > 0, 'text-white': level == 0}"
             style="top: 0.05rem; left: 1rem;"
           >{{ expanded ? '&#8722;' : '&#43;' }}</p>
 
