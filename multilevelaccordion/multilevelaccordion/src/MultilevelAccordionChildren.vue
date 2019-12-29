@@ -2,7 +2,10 @@
   <div class="accordion-children">
     <li>
       <!-- Upper Tab -->
-      <div class="accordion" @click="togglePanel()">
+      <div
+        class="accordion"
+        @click="togglePanel()"
+      >
         <slot
           :tree="tree"
           :interleaved="interleaved"
@@ -47,7 +50,7 @@
 </template>
 
 <script>
-import MultilevelAccordionChildren from "./MultilevelAccordionChildren";
+import MultilevelAccordionChildren from "src/MultilevelAccordionChildren";
 
 export default {
   name: "multilevel-accordion-children",

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import MultilevelAccordionChildren from "./MultilevelAccordionChildren";
+import MultilevelAccordionChildren from "src/MultilevelAccordionChildren";
 
 export default {
   props: {

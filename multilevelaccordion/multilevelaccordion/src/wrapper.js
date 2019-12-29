@@ -1,4 +1,4 @@
-Import vue component
+// Import vue component
 import component from './MultilevelAccordion.vue';
 
 // Declare install function executed by Vue.use()
