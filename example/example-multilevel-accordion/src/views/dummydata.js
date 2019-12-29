@@ -2,7 +2,7 @@ const tree = {
   text: "Root",
   leaf: false,
   children: [{
-      text: "Rama de derecho",
+      text: "Rama de Derecho",
       leaf: false,
       children: [{
           text: "Ramo 1",
