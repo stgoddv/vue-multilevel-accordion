@@ -96,11 +96,7 @@ export default {
 
 <style scoped>
 .accordion {
-  width: 100%;
   text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
 }
 
 .panel {
