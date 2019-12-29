@@ -1,5 +1,5 @@
 {
-  "name": "vue-multilevelaccordion",
+  "name": "vue-multilevel-accordion",
   "version": "0.1.0",
   "main": "dist/multilevelaccordion.umd.js",
   "module": "dist/multilevelaccordion.esm.js",
@@ -7,7 +7,6 @@
   "browser": {
     "./sfc": "src/multilevelaccordion.vue"
   },
-  "private": true,
   "scripts": {
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/multilevelaccordion.umd.js",
