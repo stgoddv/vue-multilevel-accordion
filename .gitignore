@@ -1,6 +1,9 @@
 .DS_Store
-node_modules
-/dist
+component/vue-multilevel-accordion/node_modules
+component/vue-multilevel-accordion/dist
+
+example/node_modules
+example/dist
 
 # local env files
 .env.local
