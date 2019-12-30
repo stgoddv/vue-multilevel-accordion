@@ -1,6 +1,6 @@
 {
   "name": "vue-multilevel-accordion",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/multilevelaccordion.umd.js",
   "module": "dist/multilevelaccordion.esm.js",
   "unpkg": "dist/multilevelaccordion.min.js",
