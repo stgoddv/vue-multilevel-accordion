@@ -2,6 +2,8 @@
 
 > An extremely customizable multi level accordion. It's receives a high level tree structure in json format.
 
+![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example1.gif?raw=true)
+
 # Table of Contents
 
 1. [Motivation](#motivation)
@@ -113,22 +115,63 @@ For example, this is going to show text field defined previously in every tab. A
 
 6. You can see the result!
 
-![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/music-example.gif?raw=true)
+![Musicians Example](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/music-example.gif?raw=true)
 
 ### Options
 
 ### Demo
 
-a) Simple Accordion
+Adding some styling you can quickly scalate the complexity of the component and the design.
 
-b) Nested Menu
+For example, you can:
 
-### Contribution
+1. **Alternate the color for each row to bring a better UX.**
+   > This is done with the **{ interleaved }** destructuring.
+2. **Specific rules for leaf and non leaf tabs.**
+   > This can be done with the _leaf_ field in the json tree: **tree.leaf** is going to be true if the element is a leaf, and false otherwise. Combine this with _v-if_ or conditionals.
+3. **Specific rules or css styles when the element is expanded.**
+   > This can be done with the **{ expanded }** destructuring, which is going to be true is the tab is expanded and false otherwise.
+4. **Specifics rules or styles depending of the depth level**
+   > This can be done with the **{ level }** destructuring which is an Integer that represents the current level of depth.
 
-### License
+For example, using this component and the library **Tailwind Css** you could reach pretty different styles:
+
+Example 1:
 
 ![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example1.gif?raw=true)
 
+Example 2:
+
 ![Example 2](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example2.gif?raw=true)
 
+Example 3:
+
 ![Example 3](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example3.gif?raw=true)
+
+### Contribution
+
+This is a pretty basic project that I did in a weekend. If you want to contribute improving this, adding more functionality of fixing issues I'll be glad to receive PR.
+
+### License
+
+MIT License
+
+Copyright (c) [year][fullname]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
