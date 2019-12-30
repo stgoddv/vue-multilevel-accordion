@@ -6,7 +6,7 @@
 
 1. [Motivation](#motivation)
 2. [Installation](#installation)
-3. [Use](#use)
+3. [Options](#options)
 4. [Demo](#demo)
 5. [Contribution](#contribution)
 6. [License](#license)
@@ -20,11 +20,11 @@ The above reasons led me to build an extremely customizable recursive accordion.
 
 ### Installation
 
-1. First install package by npm
+1. First install package by npm.
 
 > npm i vue-multilevel-accordion
 
-Then import the component and register it where you want to use it.
+2. Import the component and register it where you want to use it.
 
 ```html
 <script>
@@ -44,9 +44,36 @@ Then import the component and register it where you want to use it.
 </script>
 ```
 
-Finall
+3. Create the tree structure in json format.
 
-### Use
+```js
+```
+
+4. Define the recursive template that is going to be in every tab. You've to use _slot-scope_ and destructurate **{ tree }** property. For more options see the [Options](#options) section.
+
+For example, this is going to show for every tab the text field defined previously in the json tree. Also, when the user clicks on the tab it'll call the method _select(value)_.
+
+```html
+<template slot-scope="{ tree }">
+  <div @click="select(tree.text)">
+    <p>{{ tree.text }}</p>
+  </div>
+</template>
+```
+
+5. Place the component with the slot wherever you want. You've to pass the component the tree structure and optionally a margin on the left that'll growth with every level of depth.
+
+```html
+<multilevel-accordion :tree="tree" :marginLeft="2">
+  <template slot-scope="{ tree }">
+    <div @click="select(tree.text)">
+      <p>{{ tree.text }}</p>
+    </div>
+  </template>
+</multilevel-accordion>
+```
+
+### Options
 
 ### Demo
 
