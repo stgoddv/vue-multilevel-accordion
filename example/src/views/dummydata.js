@@ -3,43 +3,37 @@ const tree = {
   leaf: false,
   children: [
     {
-      text: "Rama de Derecho",
+      text: "Musicians",
       leaf: false,
       children: [
         {
-          text: "Ramo 1",
+          text: "IDM",
           leaf: false,
           children: [
             {
-              text: "Unidad 1",
+              text: "Ae",
               leaf: true
             },
             {
-              text: "Unidad 2",
+              text: "BoC",
               leaf: true
             },
             {
-              text: "Unidad 3",
-              leaf: false,
-              children: [
-                {
-                  text: "Apartado 1",
-                  leaf: true
-                }
-              ]
+              text: "Mouse on Mars",
+              leaf: true
             }
           ]
         },
         {
-          text: "Ramo 2",
+          text: "Electroacoustic",
           leaf: false,
           children: [
             {
-              text: "Unidad 1",
+              text: "K. Stockhausen",
               leaf: true
             },
             {
-              text: "Unidad 2",
+              text: "Edward Artemiev",
               leaf: true
             }
           ]
@@ -47,26 +41,20 @@ const tree = {
       ]
     },
     {
-      text: "Rama de Civil",
+      text: "Philosophers",
       leaf: false,
       children: [
         {
-          text: "Ramo 1",
-          leaf: false,
-          children: [
-            {
-              text: "Unidad 1",
-              leaf: true
-            },
-            {
-              text: "Unidad 2",
-              leaf: true
-            },
-            {
-              text: "Unidad 3",
-              leaf: true
-            }
-          ]
+          text: "Carl Gustav Jung",
+          leaf: true
+        },
+        {
+          text: "Andrei Tarkovsky",
+          leaf: true
+        },
+        {
+          text: "George Gurdjieff",
+          leaf: true
         }
       ]
     }
