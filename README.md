@@ -119,7 +119,45 @@ For example, this is going to show text field defined previously in every tab. A
 
 ### Options
 
+1. Props:
+
+The component receives 2 posible props:
+
+```html
+<multilevel-accordion :tree="tree" :marginLeft="2"> </multilevel-accordion>
+```
+
+| Prop       | Type   | Default | Description                                                                             |
+| ---------- | ------ | ------- | --------------------------------------------------------------------------------------- |
+| tree       | Object | null    | Contains the tree in json format that's required to render the component.               |
+| marginLeft | Float  | 0       | It's the accumulative margin on the left that growths with each level. Is in rem units. |
+
+2. Destructuring:
+
+For each element in the tree some properties can be individually accesed via _slot-scope_ directive.
+
+```html
+<multilevel-accordion :tree="tree" :marginLeft="2">
+  <template slot-scope="{ tree, interleaved, level, expanded }">
+    <div>
+      <p>{{ tree.text }}</p>
+    </div>
+  </template>
+</multilevel-accordion>
+```
+
+| Field       | Type    | Description                                                                                                                         |
+| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| tree        | Object  | Contains the fields defined in the tree structure. Usually contains **tree.leaf**, a Boolean that is _true_ when the row is a leaf. |
+| interleaved | Boolean | Alternates between _true_ and _false_ depending on the row. It can be use to select a background color, for example.                |
+| level       | Number  | Integer that indicates the depth level of the row.                                                                                  |
+| expanded    | Boolean | Is _true_ if the row is expanded, else otherwise.                                                                                   |
+
 ### Demo
+
+Important:
+
+> In this repository there is a functional example that you can run locally in your pc. Please go to the _components_ folder and follow the instructions.
 
 Adding some styling you can quickly scalate the complexity of the component and the design.
 
