@@ -44,24 +44,86 @@ The above reasons led me to build an extremely customizable recursive accordion.
 </script>
 ```
 
-3. Create the tree structure in json format.
+3. Create the tree structure and save it on a file (in this case it's called _tree.js_). The first level (root level) it's not going to be rendered but is required by the component.
 
 ```js
+const tree = {
+  text: "Root",
+  leaf: false,
+  children: [
+    {
+      text: "Musicians",
+      leaf: false,
+      children: [
+        {
+          text: "IDM",
+          leaf: false,
+          children: [
+            {
+              text: "Ae",
+              leaf: true
+            },
+            {
+              text: "BOC",
+              leaf: true
+            }
+          ]
+        },
+        {
+          text: "Post Rock",
+          leaf: false,
+          children: [
+            {
+              text: "Tortoise",
+              leaf: true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      text: "Rama de Civil",
+      leaf: false,
+      children: [
+        {
+          text: "Ramo 1",
+          leaf: false,
+          children: [
+            {
+              text: "Unidad 1",
+              leaf: true
+            },
+            {
+              text: "Unidad 2",
+              leaf: true
+            },
+            {
+              text: "Unidad 3",
+              leaf: true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+export { tree };
 ```
 
 4. Define the recursive template that is going to be in every tab. You've to use _slot-scope_ and destructurate **{ tree }** property. For more options see the [Options](#options) section.
 
-For example, this is going to show for every tab the text field defined previously in the json tree. Also, when the user clicks on the tab it'll call the method _select(value)_.
+For example, this is going to show text field defined previously in every tab. Also, when the user clicks on the tab, the method _select(value)_ will be called.
 
 ```html
 <template slot-scope="{ tree }">
-  <div @click="select(tree.text)">
+  <div @click="select(tree.text)" style="padding: 10px;">
     <p>{{ tree.text }}</p>
   </div>
 </template>
 ```
 
-5. Place the component with the slot wherever you want. You've to pass the component the tree structure and optionally a margin on the left that'll growth with every level of depth.
+5. Place the component with the slot wherever you want. You've to pass the component the tree structure and optionally a margin on the left that it's going to growth with every level of depth.
 
 ```html
 <multilevel-accordion :tree="tree" :marginLeft="2">
@@ -72,6 +134,10 @@ For example, this is going to show for every tab the text field defined previous
   </template>
 </multilevel-accordion>
 ```
+
+6. You can see the result!
+
+![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example1.gif?raw=true)
 
 ### Options
 
