@@ -157,7 +157,7 @@ For each element in the tree some properties can be individually accesed via _sl
 
 Important:
 
-> In this repository there is a functional example that you can run locally in your pc. Please go to the _components_ folder and follow the instructions.
+> In this repository there is a functional example that you can run locally in your pc. Please go to the _example_ folder and follow the instructions.
 
 Adding some styling you can quickly scalate the complexity of the component and the design.
 
