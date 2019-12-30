@@ -113,7 +113,7 @@ For example, this is going to show text field defined previously in every tab. A
 
 6. You can see the result!
 
-![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example1.gif?raw=true)
+![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/music-example.gif?raw=true)
 
 ### Options
 
