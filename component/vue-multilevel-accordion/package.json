@@ -1,6 +1,22 @@
 {
   "name": "vue-multilevel-accordion",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "keywords": [
+    "accordion",
+    "menu",
+    "recursive",
+    "recursive accordion",
+    "recursive menu",
+    "nested accordion",
+    "nested menu",
+    "multi level accordion",
+    "multi level menu",
+    "deep accordion",
+    "deep menu",
+    "vue component",
+    "vue",
+    "vuejs"
+  ],
   "main": "dist/multilevelaccordion.umd.js",
   "module": "dist/multilevelaccordion.esm.js",
   "unpkg": "dist/multilevelaccordion.min.js",
