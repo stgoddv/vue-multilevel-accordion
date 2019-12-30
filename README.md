@@ -80,30 +80,6 @@ const tree = {
           ]
         }
       ]
-    },
-    {
-      text: "Rama de Civil",
-      leaf: false,
-      children: [
-        {
-          text: "Ramo 1",
-          leaf: false,
-          children: [
-            {
-              text: "Unidad 1",
-              leaf: true
-            },
-            {
-              text: "Unidad 2",
-              leaf: true
-            },
-            {
-              text: "Unidad 3",
-              leaf: true
-            }
-          ]
-        }
-      ]
     }
   ]
 };
@@ -123,7 +99,7 @@ For example, this is going to show text field defined previously in every tab. A
 </template>
 ```
 
-5. Place the component with the slot wherever you want. You've to pass the component the tree structure and optionally a margin on the left that it's going to growth with every level of depth.
+5. Place the component with the slot wherever you want. You've to pass the component the tree structure and optionally a margin on the left that it's going to growth with every level of depth. For more options see the [Options](#options) section.
 
 ```html
 <multilevel-accordion :tree="tree" :marginLeft="2">
