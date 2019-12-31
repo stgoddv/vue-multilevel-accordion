@@ -51,33 +51,26 @@ The above reasons led me to build an extremely customizable recursive accordion.
 ```js
 const tree = {
   text: "Root",
-  leaf: false,
   children: [
     {
       text: "Musicians",
-      leaf: false,
       children: [
         {
           text: "IDM",
-          leaf: false,
           children: [
             {
-              text: "Ae",
-              leaf: true
+              text: "Ae"
             },
             {
-              text: "BOC",
-              leaf: true
+              text: "BOC"
             }
           ]
         },
         {
           text: "Post Rock",
-          leaf: false,
           children: [
             {
-              text: "Tortoise",
-              leaf: true
+              text: "Tortoise"
             }
           ]
         }
@@ -138,7 +131,7 @@ For each element in the tree some properties can be individually accesed via _sl
 
 ```html
 <multilevel-accordion :tree="tree" :marginLeft="2">
-  <template slot-scope="{ tree, interleaved, level, expanded }">
+  <template slot-scope="{ tree, interleaved, level, expanded, leaf }">
     <div>
       <p>{{ tree.text }}</p>
     </div>
@@ -146,12 +139,13 @@ For each element in the tree some properties can be individually accesed via _sl
 </multilevel-accordion>
 ```
 
-| Field       | Type    | Description                                                                                                                         |
-| ----------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| tree        | Object  | Contains the fields defined in the tree structure. Usually contains **tree.leaf**, a Boolean that is _true_ when the row is a leaf. |
-| interleaved | Boolean | Alternates between _true_ and _false_ depending on the row. It can be use to select a background color, for example.                |
-| level       | Number  | Integer that indicates the depth level of the row.                                                                                  |
-| expanded    | Boolean | Is _true_ if the row is expanded, else otherwise.                                                                                   |
+| Field       | Type    | Description                                                                                                                                                                                                           |
+| ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tree        | Object  | Contains the fields defined in the tree structure. Usually contains **tree.leaf**, a Boolean that is _true_ when the row is a leaf.                                                                                   |
+| interleaved | Boolean | Alternates between _true_ and _false_ depending on the row. It can be use to select a background color, for example.                                                                                                  |
+| level       | Number  | Integer that indicates the depth level of the row.                                                                                                                                                                    |
+| expanded    | Boolean | Is _true_ if the row is expanded, else otherwise.                                                                                                                                                                     |
+| leaf        | Boolean | Is _true_ if the tab is a leaf (doesnt have any children element), _false_ otherwise. You can override this default behaviour by adding _leaf: **true**_ or _leaf: **false**_ in the tree structure for each element. |
 
 ### Demo
 
@@ -166,7 +160,7 @@ For example, you can:
 1. **Alternate the color for each row to bring a better UX.**
    > This is done with the **{ interleaved }** destructuring.
 2. **Specific rules for leaf and non leaf tabs.**
-   > This can be done with the _leaf_ field in the json tree: **tree.leaf** is going to be true if the element is a leaf, and false otherwise. Combine this with _v-if_ or conditionals.
+   > This can be done with the **{ leaf }** destructuring: **leaf** is going to be true if the element is a leaf, and false otherwise. Combine this with _v-if_ or conditionals.
 3. **Specific rules or css styles when the element is expanded.**
    > This can be done with the **{ expanded }** destructuring, which is going to be true is the tab is expanded and false otherwise.
 4. **Specifics rules or styles depending of the depth level**
