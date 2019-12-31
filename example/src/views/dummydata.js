@@ -1,10 +1,13 @@
 const tree = {
   text: "Root",
-  children: [{
+  children: [
+    {
       text: "Musicians",
-      children: [{
+      children: [
+        {
           text: "IDM",
-          children: [{
+          children: [
+            {
               text: "Ae"
             },
             {
@@ -17,11 +20,12 @@ const tree = {
         },
         {
           text: "Electroacoustic",
-          children: [{
-              text: "K. Stockhausen",
+          children: [
+            {
+              text: "K. Stockhausen"
             },
             {
-              text: "Edward Artemiev",
+              text: "Edward Artemiev"
             }
           ]
         }
@@ -29,20 +33,19 @@ const tree = {
     },
     {
       text: "Philosophers",
-      children: [{
-          text: "Carl Gustav Jung",
+      children: [
+        {
+          text: "Carl Gustav Jung"
         },
         {
-          text: "Andrei Tarkovsky",
+          text: "Andrei Tarkovsky"
         },
         {
-          text: "George Gurdjieff",
+          text: "George Gurdjieff"
         }
       ]
     }
   ]
 };
 
-export {
-  tree
-};
+export { tree };

@@ -5,10 +5,7 @@
     <div class="py-3"></div>
 
     <div class="flex flex-wrap border">
-      <div
-        class="w-full md:w-7/12"
-        style="background-color: #f5f2f0;"
-      >
+      <div class="w-full md:w-7/12" style="background-color: #f5f2f0;">
         <pre style="margin: 0px !important;">
           <code class="language-markup" v-pre>
   &lt;template slot-scope="{ tree, interleaved, expanded, leaf }">
@@ -28,14 +25,8 @@
           </code>
         </pre>
       </div>
-      <div
-        class="w-full md:w-5/12"
-        style="min-height: 50vh;"
-      >
-        <p
-          class="py-3 text-sm"
-          style="background-color: #f5f2f0;"
-        >
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
+        <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
         <multilevel-accordion
@@ -56,7 +47,8 @@
               @click="select(tree.text, leaf)"
             >
               <p>
-                <span v-if="!leaf">{{ expanded ? "&#8681;" : "&#8680;" }} |
+                <span v-if="!leaf"
+                  >{{ expanded ? "&#8681;" : "&#8680;" }} |
                 </span>
                 {{ tree.text }}
               </p>
@@ -69,10 +61,7 @@
     <div class="py-3"></div>
 
     <div class="flex flex-wrap border">
-      <div
-        class="w-full md:w-7/12"
-        style="background-color: #f5f2f0;"
-      >
+      <div class="w-full md:w-7/12" style="background-color: #f5f2f0;">
         <pre style="margin: 0px !important;">
           <code class="language-markup" v-pre>
   &lt;template slot-scope="{ tree, level, expanded, leaf }">
@@ -97,14 +86,8 @@
           </code>
         </pre>
       </div>
-      <div
-        class="w-full md:w-5/12"
-        style="min-height: 50vh;"
-      >
-        <p
-          class="py-3 text-sm"
-          style="background-color: #f5f2f0;"
-        >
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
+        <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
         <multilevel-accordion
@@ -140,10 +123,7 @@
     <div class="py-3"></div>
 
     <div class="flex flex-wrap border">
-      <div
-        class="w-full md:w-7/12"
-        style="background-color: #f5f2f0;"
-      >
+      <div class="w-full md:w-7/12" style="background-color: #f5f2f0;">
         <pre style="margin: 0px !important;">
           <code class="language-markup" v-pre>
   &lt;template slot-scope="{ tree, leaf }">
@@ -158,14 +138,8 @@
           </code>
         </pre>
       </div>
-      <div
-        class="w-full md:w-5/12"
-        style="min-height: 50vh;"
-      >
-        <p
-          class="py-3 text-sm"
-          style="background-color: #f5f2f0;"
-        >
+      <div class="w-full md:w-5/12" style="min-height: 50vh;">
+        <p class="py-3 text-sm" style="background-color: #f5f2f0;">
           Selected Item: {{ selectedItem || "None" }}
         </p>
         <multilevel-accordion
@@ -191,7 +165,7 @@
 </template>
 
 <script>
-import MultilevelAccordion from "./MultilevelAccordion";
+import MultilevelAccordion from "vue-multilevel-accordion";
 
 import { tree } from "./dummydata";
 
