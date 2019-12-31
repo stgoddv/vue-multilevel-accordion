@@ -11,12 +11,13 @@
           :interleaved="interleaved"
           :expanded="expanded"
           :level="level"
+          :leaf="leaf"
         ></slot>
       </div>
 
       <!-- Expandible Elements -->
       <div
-        v-if="!tree.leaf"
+        v-if="!leaf"
         class="panel expandible panel-transition"
         :ref="`panel-${reference}`"
         :style="panelStyle"
@@ -40,6 +41,7 @@
                 :interleaved="_.interleaved"
                 :expanded="_.expanded"
                 :level="_.level"
+                :leaf="_.leaf"
               ></slot>
             </template>
           </multilevel-accordion-children>
@@ -98,7 +100,7 @@ export default {
       }
     },
     expand() {
-      if (this.tree.leaf) return null;
+      if (this.leaf) return null;
       if (!this.expanded) {
         let el = this.$refs[`panel-${this.reference}`];
         this.panelStyle = `max-height: ${el.scrollHeight}px;`;
@@ -108,7 +110,7 @@ export default {
       }
     },
     shrink() {
-      if (this.tree.leaf) return null;
+      if (this.leaf) return null;
       this.panelStyle = "max-height: 0px;";
       this.expanded = false;
     },
@@ -119,6 +121,14 @@ export default {
         this.panelStyle = `max-height: ${el.scrollHeight + childrenHeight}px;`;
         this.$emit("updateHeight", el.scrollHeight + childrenHeight);
       }
+    }
+  },
+  computed: {
+    leaf() {
+      // Override by user
+      if (this.tree.leaf != undefined) return this.tree.leaf;
+      if (this.tree.children == undefined) return true;
+      return this.tree.children.length == 0;
     }
   }
 };

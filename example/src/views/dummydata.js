@@ -1,40 +1,27 @@
 const tree = {
   text: "Root",
-  leaf: false,
-  children: [
-    {
+  children: [{
       text: "Musicians",
-      leaf: false,
-      children: [
-        {
+      children: [{
           text: "IDM",
-          leaf: false,
-          children: [
-            {
-              text: "Ae",
-              leaf: true
+          children: [{
+              text: "Ae"
             },
             {
-              text: "BoC",
-              leaf: true
+              text: "BoC"
             },
             {
-              text: "Mouse on Mars",
-              leaf: true
+              text: "Mouse on Mars"
             }
           ]
         },
         {
           text: "Electroacoustic",
-          leaf: false,
-          children: [
-            {
+          children: [{
               text: "K. Stockhausen",
-              leaf: true
             },
             {
               text: "Edward Artemiev",
-              leaf: true
             }
           ]
         }
@@ -42,23 +29,20 @@ const tree = {
     },
     {
       text: "Philosophers",
-      leaf: false,
-      children: [
-        {
+      children: [{
           text: "Carl Gustav Jung",
-          leaf: true
         },
         {
           text: "Andrei Tarkovsky",
-          leaf: true
         },
         {
           text: "George Gurdjieff",
-          leaf: true
         }
       ]
     }
   ]
 };
 
-export { tree };
+export {
+  tree
+};
