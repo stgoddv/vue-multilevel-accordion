@@ -17,6 +17,7 @@
             :interleaved="_.interleaved"
             :expanded="_.expanded"
             :level="_.level"
+            :leaf="_.leaf"
           ></slot>
         </template>
       </multilevel-accordion-children>
