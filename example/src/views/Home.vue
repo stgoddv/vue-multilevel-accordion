@@ -1,8 +1,10 @@
 <template>
   <div class="home container mx-auto">
-    <p class="text-3xl my-8">Multi Level Accordion</p>
+    <p class="text-3xl mt-8">Multi Level Accordion</p>
 
-    <div class="py-3"></div>
+    <div class="py-8">
+      <p>The following examples use <strong>Tailwind CSS</strong></p>
+    </div>
 
     <div class="flex flex-wrap border">
       <div class="w-full md:w-7/12" style="background-color: #f5f2f0;">
