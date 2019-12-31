@@ -141,7 +141,7 @@ For each element in the tree some properties can be individually accesed via _sl
 
 | Field       | Type    | Description                                                                                                                                                                                                           |
 | ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tree        | Object  | Contains the fields defined in the tree structure. Usually contains **tree.leaf**, a Boolean that is _true_ when the row is a leaf.                                                                                   |
+| tree        | Object  | Contains the fields defined in the tree structure.                                                                                                                                                                    |
 | interleaved | Boolean | Alternates between _true_ and _false_ depending on the row. It can be use to select a background color, for example.                                                                                                  |
 | level       | Number  | Integer that indicates the depth level of the row.                                                                                                                                                                    |
 | expanded    | Boolean | Is _true_ if the row is expanded, else otherwise.                                                                                                                                                                     |
@@ -167,6 +167,8 @@ For example, you can:
    > This can be done with the **{ level }** destructuring which is an Integer that represents the current level of depth.
 
 For example, using this component and the library **Tailwind Css** you could reach pretty different styles:
+
+> You can run locally in your computer the following examples. To do this, just go to the github repository and clone the folder _example_. To install, follow the instructions listed on the readme file of that folder.
 
 Example 1:
 
