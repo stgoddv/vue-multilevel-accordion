@@ -1,8 +1,14 @@
 # Multilevel Accordion Component for Vue 2.5+
 
-> An extremely customizable multi level accordion. It's receives a high level tree structure in json format.
+An extremely customizable multi level accordion. It's receives a high level tree structure in json format.
+
+Example 1:
 
 ![Example 1](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example1.gif?raw=true)
+
+Example 2:
+
+![Example 2](https://github.com/stgoddv/vue-multilevel-accordion/blob/develop/static/example2.gif?raw=true)
 
 # Table of Contents
 
