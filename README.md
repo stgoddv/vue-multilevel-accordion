@@ -1,6 +1,8 @@
 # Multilevel Accordion Component for Vue 2.5+
+# 适用于Vue 2.5+的多层手风琴组件
 
-An extremely customizable multi level accordion. It's receives a high level tree structure in json format.
+An extremely customizable multi level accordion. It's receives a high level tree structure in json format.  
+极其可定制的多层手风琴。 它以json格式接收高级树结构。
 
 Example 1:
 
