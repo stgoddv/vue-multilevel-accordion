@@ -10,6 +10,8 @@
         :reference="`${index}`"
         :level="0"
         :marginLeft="marginLeft"
+        :marginRight="marginRight"
+        :rtl="rtl"
       >
         <template slot-scope="_">
           <slot
@@ -36,6 +38,14 @@ export default {
     marginLeft: {
       type: Number,
       default: 0
+    },
+    marginRight: {
+      type: Number,
+      default: 0
+    },
+    rtl: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
