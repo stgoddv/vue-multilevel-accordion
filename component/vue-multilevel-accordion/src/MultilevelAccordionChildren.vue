@@ -3,7 +3,7 @@
     <li>
       <!-- Upper Tab -->
       <div
-        class="accordion"
+        :class="`${rtl ? 'accordion-rtl':'accordion'}`"
         @click="togglePanel()"
       >
         <slot
@@ -22,7 +22,7 @@
         :ref="`panel-${reference}`"
         :style="panelStyle"
       >
-        <ul :style="`margin-left: ${marginLeft}rem;`">
+        <ul :style="`margin-left: ${marginLeft}rem; margin-right: ${marginRight}rem;`">
           <multilevel-accordion-children
             v-for="(child, index) in tree.children"
             :key="index"
@@ -33,6 +33,8 @@
             :interleaveOffset="interleaveOffset + position + 1"
             :level="level + 1"
             :marginLeft="marginLeft"
+            :marginRight="marginRight"
+            :rtl="rtl"
             @updateHeight="updateHeight"
           >
             <template slot-scope="_">
@@ -79,6 +81,14 @@ export default {
     marginLeft: {
       type: Number,
       default: 0
+    },
+    marginRight: {
+      type: Number,
+      default: 0
+    },
+    rtl: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -137,6 +147,10 @@ export default {
 <style scoped>
 .accordion {
   text-align: left;
+}
+
+.accordion-rtl {
+  text-align: right;
 }
 
 .panel {
